@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "684482169381",
+    "project_id": "test-bcf7d",
+    "storage_bucket": "test-bcf7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684482169381:android:ce78805a7db4b558198dcc",
+        "android_client_info": {
+          "package_name": "com.smriti.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCroviL1gD0SU2TS7ZmueMs6seGceiVGFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
