@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test_2/api_response/api_response.dart';
 import 'package:test_2/core/helper.dart';
 import 'package:test_2/core/status_util.dart';
@@ -6,7 +7,12 @@ import 'package:test_2/core/status_util.dart';
 class Api {
   Dio dio = Dio();
   post(String url, var value) async {
-     if(await isInternetAvailable()==true){
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    if(token!=null){
+      dio.options.headers['authorization']='Bearer $token';
+    }
+    //  if(await isInternetAvailable()==true){
  try {
      
       Response res = await dio.post(url, data: value);
@@ -21,9 +27,9 @@ class Api {
           statusUtils: StatusUtils.error, errorMessage: e.toString());
       return apiResponse;
     }
-      }
-     else {return ApiResponse(statusUtils: StatusUtils.error,errorMessage:"noInternetConnection");
-     }
+    //   }
+    //  else {return ApiResponse(statusUtils: StatusUtils.error,errorMessage:"noInternetConnection");
+    //  }
   }
 
   get(String url) async {
